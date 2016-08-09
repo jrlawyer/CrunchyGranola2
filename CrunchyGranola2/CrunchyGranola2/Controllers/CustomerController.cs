@@ -16,9 +16,29 @@ namespace CrunchyGranola2.Controllers
         private CrunchyGranola2Context db = new CrunchyGranola2Context();
 
         // GET: Customer
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(db.Customers.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var customers = from c in db.Customers
+                            select c;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    customers = customers.OrderByDescending(c => c.LastName);
+                    break;
+                case "Date":
+                    customers = customers.OrderBy(c => c.DateOfLastPurchase);
+                    break;
+                case "date_desc":
+                    customers = customers.OrderByDescending(c => c.DateOfLastPurchase);
+                    break;
+                default:
+                    customers = customers.OrderBy(c => c.LastName);
+                    break;
+            }
+       
+            return View(customers.ToList());
         }
 
         // GET: Customer/Details/5
@@ -113,11 +133,15 @@ namespace CrunchyGranola2.Controllers
         }
 
         // GET: Customer/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id, bool? saveChangesError = false)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ViewBag.ErrorMessage = "Delete failed. Try again, and if the problem persists, contact your system administrator.";
             }
             Customer customer = db.Customers.Find(id);
             if (customer == null)
@@ -128,13 +152,21 @@ namespace CrunchyGranola2.Controllers
         }
 
         // POST: Customer/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int id)
         {
-            Customer customer = db.Customers.Find(id);
-            db.Customers.Remove(customer);
-            db.SaveChanges();
+            try
+            {
+                Customer customer = db.Customers.Find(id);
+                db.Customers.Remove(customer);
+                db.SaveChanges();
+            }
+            catch (DataException /*dex*/)
+            {
+                //Log the error (uncomment dex variable name and add a list here to write a log.
+                return RedirectToAction("Delete", new { id = id, saveChangesError = true });
+            }
             return RedirectToAction("Index");
         }
 
