@@ -16,12 +16,17 @@ namespace CrunchyGranola2.Controllers
         private CrunchyGranola2Context db = new CrunchyGranola2Context();
 
         // GET: Customer
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             var customers = from c in db.Customers
                             select c;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                customers = customers.Where(c =>c.LastName.Contains(searchString)
+                    || c.FirstName.Contains(searchString));
+            }
             switch (sortOrder)
             {
                 case "name_desc":
