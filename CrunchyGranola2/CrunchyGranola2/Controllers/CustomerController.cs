@@ -46,16 +46,24 @@ namespace CrunchyGranola2.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerID,LastName,FirstName,DateOfLastPurchase")] Customer customer)
+        [ValidateAntiForgeryToken]                  //remove customer ID?
+        public ActionResult Create([Bind(Include = "LastName,FirstName,DateOfLastPurchase")] Customer customer)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Customers.Add(customer);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
+                if (ModelState.IsValid)
+                {
+                    db.Customers.Add(customer);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (DataException/*dex*/)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see you system administrator.");
+            }
             return View(customer);
         }
 
@@ -77,17 +85,31 @@ namespace CrunchyGranola2.Controllers
         // POST: Customer/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerID,LastName,FirstName,DateOfLastPurchase")] Customer customer)
+        public ActionResult EditPost (int? id)
         {
-            if (ModelState.IsValid)
+            if (id == null)
             {
-                db.Entry(customer).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return View(customer);
+            var customerToUpdate = db.Customers.Find(id);
+            if (TryUpdateModel(customerToUpdate, "",
+                new string[] { "LastName", "FirstName", "DateOfLastPurchase" }))
+            {
+                try
+                {
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch(DataException /*dex*/)
+                {
+                    //Log error (uncoment dex variable name and add a line here to write a log.
+                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, contact your system administrator.");
+                }
+            }
+            
+            return View(customerToUpdate);
         }
 
         // GET: Customer/Delete/5

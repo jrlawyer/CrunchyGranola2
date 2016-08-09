@@ -42,6 +42,7 @@
                 <tr>
                     <th>Product</th>
                     <th>Quantity</th>
+                    <th>Price</th>
                 </tr>
                 @foreach (var item in Model.Purchases)
                 {
@@ -52,6 +53,10 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Product.Quantity)
                         </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.Price)
+                        </td>
+
                     </tr>
 
                 }
