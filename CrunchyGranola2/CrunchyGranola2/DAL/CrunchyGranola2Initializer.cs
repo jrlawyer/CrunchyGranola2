@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CrunchyGranola2.DAL
 {
-    public class CrunchyGranola2Intializer : System.Data.Entity. DropCreateDatabaseIfModelChanges<CrunchyGranola2Context>
+    public class CrunchyGranola2Initializer : System.Data.Entity. DropCreateDatabaseIfModelChanges<CrunchyGranola2Context>
     {
         protected override void Seed(CrunchyGranola2Context context)
         {
