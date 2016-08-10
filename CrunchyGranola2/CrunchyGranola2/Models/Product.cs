@@ -16,6 +16,7 @@ namespace CrunchyGranola2.Models
         public int Quantity { get; set; }
         [Display(Name = "Lead Time")]
         public string LeadTime { get; set; }
+        [Display(Name = "Department ID")]
         public int DepartmentID { get; set; }
 
         public virtual Department Department { get; set; }
