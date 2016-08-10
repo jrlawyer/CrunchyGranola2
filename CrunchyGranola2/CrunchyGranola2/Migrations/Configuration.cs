@@ -43,7 +43,7 @@ namespace CrunchyGranola2.Migrations
                 new Employee {EmployeeID = 6, FirstName = "Jen", LastName = "Fall", HireDate=DateTime.Parse("2016-02-13"),
                     DepartmentName = "Apparel"},
                 new Employee {EmployeeID = 7, FirstName = "Amanda", LastName = "Hall", HireDate=DateTime.Parse("2011-03-13"),
-                    DepartmentName = "Hall"},
+                    DepartmentName = "Apparel"},
                 new Employee {EmployeeID = 8, FirstName = "Melanie", LastName = "Harper", HireDate=DateTime.Parse("2014-10-01"),
                     DepartmentName = "Health"},
 

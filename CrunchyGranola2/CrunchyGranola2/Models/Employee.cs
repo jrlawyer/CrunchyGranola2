@@ -22,6 +22,7 @@ namespace CrunchyGranola2.Models
         [Display(Name = "Hire Date")]
         public DateTime HireDate { get; set;}
 
+        [Display(Name = "Department Name")]
         public string DepartmentName { get; set; }
 
         [Display(Name = "Full Name")]
