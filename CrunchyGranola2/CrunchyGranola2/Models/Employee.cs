@@ -22,7 +22,7 @@ namespace CrunchyGranola2.Models
         [Display(Name = "Hire Date")]
         public DateTime HireDate { get; set;}
 
-        public int DepartmentID { get; set; }
+        public string DepartmentName { get; set; }
 
         [Display(Name = "Full Name")]
         public string FullName
@@ -30,7 +30,7 @@ namespace CrunchyGranola2.Models
             get { return LastName + ", " + FirstName; }
         }
 
-        public virtual Department Department { get; set; }
+        public virtual Department Department { get;  set;}
 
 
     }
