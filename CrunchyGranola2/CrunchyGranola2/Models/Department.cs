@@ -16,6 +16,8 @@ namespace CrunchyGranola2.Models
         [Column(TypeName = "money")]
         public decimal Budget { get; set; }
 
+        
+        [ForeignKey("Manager")]
         public int? EmployeeID { get; set; }
 
         public virtual Employee Manager { get; set; }

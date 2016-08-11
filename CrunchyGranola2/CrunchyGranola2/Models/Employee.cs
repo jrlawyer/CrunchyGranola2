@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CrunchyGranola2.Models
 {
@@ -31,8 +32,7 @@ namespace CrunchyGranola2.Models
             get { return LastName + ", " + FirstName; }
         }
 
-        public virtual Department Department { get;  set;}
-
+        public virtual Department Department { get; set; }
 
     }
 }
