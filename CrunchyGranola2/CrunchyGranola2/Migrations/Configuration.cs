@@ -112,6 +112,15 @@ namespace CrunchyGranola2.Migrations
                 new Purchase {PurchaseID = 103, CustomerID = customers.Single(c=>c.LastName == "Gage").CustomerID,
                     ProductID = products.Single(p => p.ProductID == 12).ProductID,
                 },
+                new Purchase {PurchaseID = 104, CustomerID = customers.Single(c=>c.LastName == "Shively").CustomerID,
+                    ProductID = products.Single(p => p.ProductID == 10).ProductID,
+                },
+                new Purchase {PurchaseID = 105, CustomerID = customers.Single(c=>c.LastName == "Steele").CustomerID,
+                    ProductID = products.Single(p => p.ProductID == 11).ProductID,
+                },
+                new Purchase {PurchaseID = 106, CustomerID = customers.Single(c=>c.LastName == "Hart").CustomerID,
+                    ProductID = products.Single(p => p.ProductID == 13).ProductID,
+                },
 
             };
 
