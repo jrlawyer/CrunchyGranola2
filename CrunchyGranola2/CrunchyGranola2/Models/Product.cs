@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -23,6 +24,11 @@ namespace CrunchyGranola2.Models
 
         [Display(Name = "Lead Time")]
         public string LeadTime { get; set; }
+
+        internal object Select(Func<object, object> p)
+        {
+            throw new NotImplementedException();
+        }
 
         [Display(Name = "Department ID")]
         public int DepartmentID { get; set; }

@@ -141,6 +141,7 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\PurchaseController.cs" />
     <Compile Include="DAL\CrunchyGranola2Context.cs" />
     <Compile Include="DAL\CrunchyGranola2Initializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -158,6 +159,7 @@
     <Compile Include="Models\Purchase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\DateOfLastPurchaseGroup.cs" />
+    <Compile Include="ViewModels\PurchaseData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\CrunchyGranola2.mdf" />
@@ -220,6 +222,11 @@
     <Content Include="Views\Department\Details.cshtml" />
     <Content Include="Views\Department\Edit.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Purchase\Create.cshtml" />
+    <Content Include="Views\Purchase\Delete.cshtml" />
+    <Content Include="Views\Purchase\Details.cshtml" />
+    <Content Include="Views\Purchase\Edit.cshtml" />
+    <Content Include="Views\Purchase\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
