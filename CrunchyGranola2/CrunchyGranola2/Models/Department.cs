@@ -7,6 +7,7 @@ namespace CrunchyGranola2.Models
     public class Department
     {
         [Display(Name = "Department ID")]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int DepartmentID { get; set; }
 
         [Display(Name = "Department Name")]

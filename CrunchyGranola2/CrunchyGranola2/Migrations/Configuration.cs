@@ -3,7 +3,6 @@ namespace CrunchyGranola2.Migrations
     using Models;
     using System;
     using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
@@ -47,28 +46,28 @@ namespace CrunchyGranola2.Migrations
             var departments = new List<Department>
             {
                 new Department { DepartmentID = 200, DepartmentName = "Seafood", Budget = 3500,
-                    EmployeeID = employees.Single(i=>i.LastName=="Morales").EmployeeID },
+                    Manager = employees.Single(i=>i.LastName=="Morales") },
                 new Department { DepartmentID = 201, DepartmentName = "Produce", Budget = 4500,
-                    EmployeeID = employees.Single(i=>i.LastName=="Baker").EmployeeID },
+                    Manager = employees.Single(i=>i.LastName=="Baker") },
                 new Department { DepartmentID = 202, DepartmentName = "Apparel", Budget = 3000,
-                    EmployeeID = employees.Single(i=>i.LastName=="Hall").EmployeeID },
+                    Manager = employees.Single(i=>i.LastName=="Hall") },
                 new Department { DepartmentID = 203, DepartmentName = "Health", Budget = 2500,
-                    EmployeeID = employees.Single(i=>i.LastName=="Gehlhausen").EmployeeID }
+                    Manager = employees.Single(i=>i.LastName=="Gehlhausen") }
             };
 
             departments.ForEach(d => context.Departments.AddOrUpdate(s => s.DepartmentID, d));
             context.SaveChanges();
 
-            //employees.Single(s => s.LastName == "Thompson").DepartmentID = 200;
-            //employees.Single(s => s.LastName == "Gehlhausen").DepartmentID = 203;
-            //employees.Single(s => s.LastName == "Cassel").DepartmentID = 201;
-            //employees.Single(s => s.LastName == "Morales").DepartmentID = 200;
-            //employees.Single(s => s.LastName == "Baker").DepartmentID = 201;
-            //employees.Single(s => s.LastName == "Hall").DepartmentID = 202;
-            //employees.Single(s => s.LastName == "Fall").DepartmentID = 202;
-            //employees.Single(s => s.LastName == "Harper").DepartmentID = 203;
+            employees.Single(s => s.LastName == "Thompson").Department = departments.Single(d => d.DepartmentID == 200);
+            employees.Single(s => s.LastName == "Gehlhausen").Department = departments.Single(d => d.DepartmentID == 203);
+            employees.Single(s => s.LastName == "Cassel").Department = departments.Single(d => d.DepartmentID == 201);
+            employees.Single(s => s.LastName == "Morales").Department = departments.Single(d => d.DepartmentID == 200);
+            employees.Single(s => s.LastName == "Baker").Department = departments.Single(d => d.DepartmentID == 202);
+            employees.Single(s => s.LastName == "Hall").Department = departments.Single(d => d.DepartmentID == 202);
+            employees.Single(s => s.LastName == "Fall").Department = departments.Single(d => d.DepartmentID == 202);
+            employees.Single(s => s.LastName == "Harper").Department = departments.Single(d => d.DepartmentID == 203);
 
-            //context.SaveChanges();
+            context.SaveChanges();
 
 
             var products = new List<Product>

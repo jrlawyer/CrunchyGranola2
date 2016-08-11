@@ -52,7 +52,7 @@ namespace CrunchyGranola2.Migrations
                 "dbo.Department",
                 c => new
                     {
-                        DepartmentID = c.Int(nullable: false, identity: true),
+                        DepartmentID = c.Int(nullable: false),
                         DepartmentName = c.String(),
                         Budget = c.Decimal(nullable: false, storeType: "money"),
                         EmployeeID = c.Int(),
