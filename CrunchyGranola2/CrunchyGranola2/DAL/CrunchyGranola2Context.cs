@@ -14,6 +14,8 @@ namespace CrunchyGranola2.DAL
         public DbSet<Customer>Customers { get; set; }
         public DbSet<Purchase>Purchases { get; set; }
         public DbSet<Product>Products { get; set; }
+        public DbSet<Department>Departments { get; set; }
+        public DbSet<Employee>Employees { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
