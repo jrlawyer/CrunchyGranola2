@@ -146,9 +146,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608110229203_init.cs" />
-    <Compile Include="Migrations\201608110229203_init.Designer.cs">
-      <DependentUpon>201608110229203_init.cs</DependentUpon>
+    <Compile Include="Migrations\201608111006467_init.cs" />
+    <Compile Include="Migrations\201608111006467_init.Designer.cs">
+      <DependentUpon>201608111006467_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -160,10 +160,6 @@
     <Compile Include="ViewModels\DateOfLastPurchaseGroup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\CrunchyGranola2.mdf" />
-    <Content Include="App_Data\CrunchyGranola2_log.ldf">
-      <DependentUpon>CrunchyGranola2.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
@@ -220,7 +216,9 @@
     <Content Include="Views\Department\Edit.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -230,8 +228,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608110229203_init.resx">
-      <DependentUpon>201608110229203_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608111006467_init.resx">
+      <DependentUpon>201608111006467_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
