@@ -21,7 +21,7 @@ namespace CrunchyGranola2.Models
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}",ApplyFormatInEditMode = true )]
-        [Display(Name = "Enrollment Date")]
+        [Display(Name = "Date of Last Purchase")]
         public DateTime DateOfLastPurchase { get; set; }
 
         [Display(Name = "Full Name")]

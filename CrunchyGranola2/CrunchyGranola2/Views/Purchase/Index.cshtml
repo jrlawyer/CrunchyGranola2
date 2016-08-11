@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CrunchyGranola2.Models.Purchase>
+
+@{
+    ViewBag.Title = "Purchases";
+}
+
+<h2>Purchases</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+       <th>
+            @Html.DisplayNameFor(model => model.Customer.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Quantity)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.DateOfLastPurchase)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Department.DepartmentName)
+        </th>
+               
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Quantity)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.DateOfLastPurchase)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Department.DepartmentName)
+        </td>
+      
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PurchaseID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PurchaseID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PurchaseID })
+        </td>
+    </tr>
+}
+
+</table>

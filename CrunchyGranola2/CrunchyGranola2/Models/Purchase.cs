@@ -1,4 +1,6 @@
-﻿namespace CrunchyGranola2.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CrunchyGranola2.Models
 {
     public class Purchase
     {
