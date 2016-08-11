@@ -10,6 +10,8 @@ namespace CrunchyGranola2.Models
         [Display(Name = "Product Number")]
         public int ProductID { get; set; }
 
+        [DataType(DataType.Currency)]
+        [Column(TypeName = "money")]
         public int Price { get; set; }
 
         [Display(Name = "UPC Code")]

@@ -5,7 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace CrunchyGranola2.Models
 {
     public class Department
-    {
+    {   
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name = "Department ID")]
         public int DepartmentID { get; set; }
 

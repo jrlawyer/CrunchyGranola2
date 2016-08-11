@@ -37,7 +37,7 @@ namespace CrunchyGranola2.Migrations
                 c => new
                     {
                         ProductID = c.Int(nullable: false),
-                        Price = c.Int(nullable: false),
+                        Price = c.Decimal(nullable: false, storeType: "money"),
                         UpcCode = c.Int(nullable: false),
                         Description = c.String(),
                         Quantity = c.Int(nullable: false),
@@ -52,7 +52,7 @@ namespace CrunchyGranola2.Migrations
                 "dbo.Department",
                 c => new
                     {
-                        DepartmentID = c.Int(nullable: false, identity: true),
+                        DepartmentID = c.Int(nullable: false),
                         DepartmentName = c.String(),
                         Budget = c.Decimal(nullable: false, storeType: "money"),
                         EmployeeID = c.Int(),
