@@ -34,14 +34,14 @@ namespace CrunchyGranola2.Migrations
 
             var employees = new List<Employee>
             {
-                new Employee {DepartmentName = "Seafood", EmployeeID = 1, FirstName = "Nicole", LastName = "Thompson", HireDate=DateTime.Parse("2014-08-01") },
-                new Employee {DepartmentName = "Health", EmployeeID = 2, FirstName = "Sean", LastName = "Gehlhausen", HireDate=DateTime.Parse("2014-09-01") },
-                new Employee {DepartmentName = "Product", EmployeeID = 3, FirstName = "Austin", LastName = "Cassel", HireDate=DateTime.Parse("2013-05-20") },
-                new Employee {DepartmentName = "Produce", EmployeeID = 4, FirstName = "Jeff", LastName = "Baker", HireDate=DateTime.Parse("2015-02-13") },
-                new Employee {DepartmentName = "Seafood", EmployeeID = 5, FirstName = "Maria", LastName = "Morales", HireDate=DateTime.Parse("2015-02-15") },
-                new Employee {DepartmentName = "Apparel", EmployeeID = 6, FirstName = "Jen", LastName = "Fall", HireDate=DateTime.Parse("2016-02-13") },
-                new Employee {DepartmentName = "Apparel", EmployeeID = 7, FirstName = "Amanda", LastName = "Hall", HireDate=DateTime.Parse("2011-03-13") },
-                new Employee {DepartmentName = "Health", EmployeeID = 8, FirstName = "Melanie", LastName = "Harper", HireDate=DateTime.Parse("2014-10-01") }
+                new Employee {EmployeeID = 1, FirstName = "Nicole", LastName = "Thompson", HireDate=DateTime.Parse("2014-08-01") },
+                new Employee {EmployeeID = 2, FirstName = "Sean", LastName = "Gehlhausen", HireDate=DateTime.Parse("2014-09-01") },
+                new Employee {EmployeeID = 3, FirstName = "Austin", LastName = "Cassel", HireDate=DateTime.Parse("2013-05-20") },
+                new Employee {EmployeeID = 4, FirstName = "Jeff", LastName = "Baker", HireDate=DateTime.Parse("2015-02-13") },
+                new Employee {EmployeeID = 5, FirstName = "Maria", LastName = "Morales", HireDate=DateTime.Parse("2015-02-15") },
+                new Employee {EmployeeID = 6, FirstName = "Jen", LastName = "Fall", HireDate=DateTime.Parse("2016-02-13") },
+                new Employee {EmployeeID = 7, FirstName = "Amanda", LastName = "Hall", HireDate=DateTime.Parse("2011-03-13") },
+                new Employee {EmployeeID = 8, FirstName = "Melanie", LastName = "Harper", HireDate=DateTime.Parse("2014-10-01") }
 
             };
 
