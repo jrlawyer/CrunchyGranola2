@@ -147,9 +147,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608111852059_init.cs" />
-    <Compile Include="Migrations\201608111852059_init.Designer.cs">
-      <DependentUpon>201608111852059_init.cs</DependentUpon>
+    <Compile Include="Migrations\201608141624583_init.cs" />
+    <Compile Include="Migrations\201608141624583_init.Designer.cs">
+      <DependentUpon>201608141624583_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -162,10 +162,6 @@
     <Compile Include="ViewModels\PurchaseData.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\CrunchyGranola2.mdf" />
-    <Content Include="App_Data\CrunchyGranola2_log.ldf">
-      <DependentUpon>CrunchyGranola2.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrapdefault.css" />
@@ -177,6 +173,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\crunchy-granola - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -238,10 +235,12 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608111852059_init.resx">
-      <DependentUpon>201608111852059_init.cs</DependentUpon>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608141624583_init.resx">
+      <DependentUpon>201608141624583_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

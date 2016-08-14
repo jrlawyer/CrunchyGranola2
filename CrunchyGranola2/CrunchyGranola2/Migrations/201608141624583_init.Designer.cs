@@ -13,7 +13,7 @@ namespace CrunchyGranola2.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201608111852059_init"; }
+            get { return "201608141624583_init"; }
         }
         
         string IMigrationMetadata.Source

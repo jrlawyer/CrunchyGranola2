@@ -20,6 +20,9 @@ namespace CrunchyGranola2.DAL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Entity<Employee>().HasOptional<Department>(e => e.Department);
+            modelBuilder.Entity<Department>().HasOptional<Employee>(d => d.Manager);
+
         }
 
     }

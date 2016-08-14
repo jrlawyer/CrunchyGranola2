@@ -26,6 +26,9 @@ namespace CrunchyGranola2.Models
         [Display(Name = "Department Name")]
         public string DepartmentName { get; set; }
 
+        [ForeignKey("Department")]
+        public int? DepartmentID { get; set; }
+
         [Display(Name = "Full Name")]
         public string FullName
         {

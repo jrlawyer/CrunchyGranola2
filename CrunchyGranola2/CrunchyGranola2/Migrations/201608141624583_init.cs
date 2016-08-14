@@ -70,14 +70,14 @@ namespace CrunchyGranola2.Migrations
                         FirstName = c.String(nullable: false, maxLength: 50),
                         HireDate = c.DateTime(nullable: false),
                         DepartmentName = c.String(),
+                        DepartmentID = c.Int(),
                         Department_DepartmentID = c.Int(),
-                        Department_DepartmentID1 = c.Int(),
                     })
                 .PrimaryKey(t => t.EmployeeID)
+                .ForeignKey("dbo.Department", t => t.DepartmentID)
                 .ForeignKey("dbo.Department", t => t.Department_DepartmentID)
-                .ForeignKey("dbo.Department", t => t.Department_DepartmentID1)
-                .Index(t => t.Department_DepartmentID)
-                .Index(t => t.Department_DepartmentID1);
+                .Index(t => t.DepartmentID)
+                .Index(t => t.Department_DepartmentID);
             
         }
         
@@ -86,11 +86,11 @@ namespace CrunchyGranola2.Migrations
             DropForeignKey("dbo.Purchase", "ProductID", "dbo.Product");
             DropForeignKey("dbo.Product", "DepartmentID", "dbo.Department");
             DropForeignKey("dbo.Department", "EmployeeID", "dbo.Employee");
-            DropForeignKey("dbo.Employee", "Department_DepartmentID1", "dbo.Department");
             DropForeignKey("dbo.Employee", "Department_DepartmentID", "dbo.Department");
+            DropForeignKey("dbo.Employee", "DepartmentID", "dbo.Department");
             DropForeignKey("dbo.Purchase", "CustomerID", "dbo.Customer");
-            DropIndex("dbo.Employee", new[] { "Department_DepartmentID1" });
             DropIndex("dbo.Employee", new[] { "Department_DepartmentID" });
+            DropIndex("dbo.Employee", new[] { "DepartmentID" });
             DropIndex("dbo.Department", new[] { "EmployeeID" });
             DropIndex("dbo.Product", new[] { "DepartmentID" });
             DropIndex("dbo.Purchase", new[] { "ProductID" });

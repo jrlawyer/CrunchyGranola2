@@ -14,7 +14,10 @@ namespace CrunchyGranola2.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
+        
         protected override void Seed(CrunchyGranola2.DAL.CrunchyGranola2Context context)
+       
+
         {
             var customers = new List<Customer>
             {
